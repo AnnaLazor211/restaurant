@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<html lang="en">
+<head th:include="~{otherTags}"/>
+<style>
+ main {
+            grid-area: main;
+            background-color: white;
+            padding: 30px;
+        }
+    a.new {
+      background: -webkit-linear-gradient(blue, red);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+   text-align:center;
+
+    }
+    a.new:hover {
+      background: -webkit-linear-gradient(red, blue);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    div.menschen {
+    width:40%;
+    display:block;
+    margin:auto;
+    border:1px solid grey;
+    box-shadow: 3px 3px 3px 3px grey;
+    text-align:center;
+    background-color:#fce3e3;
+    }
+    img.mensch {
+    border: 5px white solid;
+    border-radius: 50%;
+    display:block;
+    margin:auto;
+    width: 100px;
+
+    }
+    .innertext {
+        margin:10px;
+
+    }
+    button.gluck {
+    display:block;
+    margin:auto;
+    width:300px;
+    padding:50px;
+    background-color:purple;
+    color:white;
+    height:70px;
+
+    }
+    button.gluck:hover{
+    background-color:white;
+    color:purple;
+    }
+    div.content {
+        background-color:white;
+    }
+header{
+        background-color:#e;
+
+}
+</style>
+<body class="container">
+<header th:include="~{header}"/>
+<nav th:include="~{menuNav}"/>
+
+<main>
+    <div class="content">
+        <br><br>
+        <div style="text-align:center;">
+            <b style="color:purple; font-size:30px;">OUR PLACE</b><br><br>
+            <br><br><i> OUR PLACE has the highest rate of customer satisfaction</i><br><br>
+
+        </div>
+
+
+        <div class="menschen"><br>
+            <img class="mensch" src="/img/More Meal Variety.jpg">
+            <br>
+            <b> More Meal Variety</b><br><br>
+
+            <div class="innertext">
+                Up to 30 weekly choices using Customize It!
+            </div>
+        </div>
+        <br><br>
+        <div class="menschen">
+            <img class="mensch" src="/img/More Flexibility.jpg">
+            <br>
+            <b>    More Flexibility</b><br><br>
+           <br>
+            <div class="innertext">
+
+                Sign up with no commitment - skip weeks or cancel anytime!
+            </div>
+        </div>
+        <br><br>
+        <div class="menschen">
+            <img class="mensch" src="/img/More Flavor.jpg">
+            <br>
+            <b>More Flavor </b><br><br>
+           <br>
+            <div class="innertext">
+                Satisfy your cravings with our flavor-packed, chef-designed recipes!
+
+
+            </div>
+        </div>
+        <br><br><br>
+        <div style="text-align:center;">
+
+        <a th:href="@{/dishes}" class="new"><b>     CHOOSE YOUR MEALS</b></a>
+        </div>
+        <br><br>
+
+    </div>
+</main>
+<footer th:include="~{footer}"/>
+
+<script src="/js/script.js"></script>
+</body>
+</html>

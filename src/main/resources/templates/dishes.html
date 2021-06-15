@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:include="~{otherTags}"/>
+<style>
+    header {
+    background-color:#e100ff;
+    }
+</style>
+<body class="container">
+<header style="background-color:#e100ff;" th:include="~{header}"/>
+<nav th:include="~{menuNav}"/>
+<main th:include="~{dishTemplate}"/>
+<footer th:include="~{footer}"/>
+
+
+</body>
+</html>

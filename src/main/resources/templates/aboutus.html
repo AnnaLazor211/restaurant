@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<html lang="en">
+<head th:include="~{otherTags}"/>
+<style>
+    a.new {
+      background: -webkit-linear-gradient(blue, red);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    a.new:hover {
+      background: -webkit-linear-gradient(red, blue);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    div.content {
+    margin:50px;
+    }
+    div.content {
+        background-color:white;
+    }
+main {
+        background-color:white;
+}
+
+
+</style>
+
+<body class="container">
+<header th:include="~{header}"/>
+<nav th:include="~{menuNav}"/>
+<main>
+    <div class="content">
+        <div>
+            <b>Restaurant "OUR PLACE`"</b> Our restaurant can offer you the highest level of services (summer terrace, cozy indoor hall, home atmosphere). Our chefs will satisfy the most sophisticated requests of gourmets. All our dishes will appeal to both children and adult fans of gourmet cuisine.
+
+            And thanks to the wood stove all our specialties turn out refined and saturated with pleasant aromas. This method of cooking allows food not to lose its useful properties and gives it a particularly pleasant taste. <br><br>
+
+
+
+
+
+
+
+
+
+
+           You can <a th:href="@{/dishes}" class="new"><b> view the menu
+        </b>
+        </a> and appreciate all our dishes! <br><br>
+
+            <div>
+               <b >Our address:</b><br>
+                Kharkiv, street Garna, 2/1<br>
+                +38 (0542) 36-12-00<br>
+                +38 (099) 14-00-990<br>
+            </div>
+        </div>
+    </div>
+</main>
+<footer th:include="~{footer}"/>
+
+
+<script src="/js/script.js"></script>
+</body>
+</html>

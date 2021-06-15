@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<style type="text/css">
+     div.logo a:hover {
+            color:white;
+
+        }
+        div.logo:hover {
+            border: 3px white solid;
+            background: black;
+
+        }
+        div.logo {
+            width:100px;
+            float:left;
+            font-size: 15px;
+            border: 3px solid;
+            text-align:center;
+            background-color: white;
+
+        }
+        header {
+            grid-area: header;
+            background-color: #e100ff;
+            color:orange;
+            height:50px;
+
+            font-size:20px;
+            padding:20px;
+
+        }
+        a {
+            font-family: Century Gothic;
+            text-decoration:none;
+            color: black;
+        }
+
+</style>
+<head th:include="~{otherTags}"/>
+
+<header th:fragment="header">
+
+    <div align="center">
+        OUR PLACE- place with great prices, excellent service, and some of the best food you’ll ever have…"
+    </div>
+</header>

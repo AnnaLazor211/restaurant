@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<style type="text/css">
+     footer {
+            grid-area: footer;
+            color:#e1a1ff;
+            font-size: 10px;
+            background-color: #ffe282;
+           padding: 30px;
+
+        }
+
+</style>
+
+<footer th:fragment="footer">@2021<br>
+
+    <br>Restaurant "OUR PLACE"<br>
+    <div style="text-align:center;">
+
+        <a th:href="@{/aboutus}" class="new"><b>ABOUT US</b></a>
+    </div>
+</footer>

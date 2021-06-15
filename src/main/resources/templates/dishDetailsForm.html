@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<style type="text/css">
+    .heading img{
+         width: 4%;
+         border-radius:50%;
+     }
+
+     .bio-image{
+    text-align:center;
+}
+.bio-image img{
+    width: 10%;
+    height: auto;
+}
+.bio-content{
+    text-align:left;
+}
+.bio-content p{
+    font-weight:600;
+    font-size:30px;
+}
+main {
+padding:30px;
+}
+div.content {
+        background-color:white;
+    }
+.add-category-btn{
+    margin-left: 2.35%;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+}
+
+button.add {
+    background-color:lime;
+    border: 3px solid lime;
+
+
+}
+button.not-add {
+    background-color:orange;
+    border: 3px solid orange;
+
+}
+button.add:hover {
+    background-color:lime;
+        border: 3px dashed black;
+
+
+
+}
+button.not-add:hover {
+    background-color:orange;
+        border: 3px dashed black;
+
+
+}
+
+
+</style>
+<main  th:fragment="dishDetailsForm">
+    <form id="dishToBasket" action="#" th:action="@{/basket/addToBasket}" th:object="${dish}" method="post">
+        <div class="row">
+            <div>
+                <div class="heading">
+                    <img src="/img/details_logo.jpeg"/>
+                </div>
+            </div>
+        </div>
+        <div class="bio-info">
+            <div class="row">
+                <div>
+                    <div class="row">
+                        <div>
+                            <div class="bio-image">
+                                <img th:src="${dish.photoPath}" alt="No photo ¯\_(ツ)_/¯"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="bio-content">
+                        <h3 th:text="'You choosed  \'' + ${dish.nameDish} + '\''"/>
+                        <br/>
+                        <h4 th:text="'Price:' + ${#numbers.formatDecimal(dish.getPrice(), 0, 'COMMA', 2, 'POINT')} + ' FOR THE '+ ${dish.getCategory().getNameOfCategory()}"/>
+                        <br/>
+                        <h3 th:text="'Consist: ' + ${dish.comment}"/>
+                    </div>
+                    <div id="hiddenMapping">
+                        <input type="hidden" th:field="*{dishId}"/>
+                        <input type="hidden" th:field="*{nameDish}"/>
+                        <input type="hidden" th:field="*{comment}"/>
+                        <input type="hidden" th:field="*{photoPath}"/>
+                        <input type="hidden" th:field="*{categoryId}"/>
+                    </div>
+                </div>
+            </div>
+            <div class="text-right">
+                <button class="btn add add-category-btn" type="submit">ADD</button>
+                <a th:href="@{/dishes}">
+                    <button type="button" class="btn not-add add-category-btn">DELETE</button>
+                </a>
+            </div>
+        </div>
+    </form>
+</main>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<style type="text/css">
+img {
+display:block;
+width: 250px;
+margin:auto;
+
+}
+div.content {
+        background-color:white;
+    }
+ main {
+            grid-area: main;
+            background-color: white;
+            padding: 30px;
+        }
+
+        .btn {
+            padding: 10px;
+            border: 3px solid orange;
+            background-color: orange;
+        }
+        .btn:hover {
+            border: 3px solid black;
+
+        }
+        div.overDiv {
+        padding: 40px;
+        }
+        div.overDiv:hover {
+        box-shadow: 3px 3px purple, -1em 0 .4em orange;
+        }
+        div.op{
+        padding: 40px;
+        }
+</style>
+
+<main th:fragment="dishTemplate">
+<br><br><br>
+        <div class="op">
+                <label >Categories:</label>
+                <select id="categoryFilter" onchange="filterDishes('CATALOGUE')" class="selectpicker product-filter-item">
+                        <option th:value="null" th:text="none"></option>
+                        <option th:each="category: ${categories}" th:value="${category.categoryId}">
+                                <span th:text="${category.nameOfCategory}"></span>
+                        </option>
+                </select>
+                </div>
+
+<div >
+    <div   id="dishGrid">
+    <div th:each="dish: ${dishes}" class="overDiv">
+                    <div >
+                        <img  th:src="${dish.photoPath}">
+                    </div>
+            <div>
+                <span>DISH: </span>
+                <h4 th:text="${dish.nameDish}"/>
+                <!--name of option needed-->
+                <span>CATEGORY: </span>
+                <h4 th:text="${dish.getCategory().getNameOfCategory()}"></h4>
+            </div><br><br>
+                    <p><a class="btn btn-primary" th:href="'/getDishDetails/' + ${dish.dishId}">TASTE ME</a></p>
+
+        </div>
+    </div>
+</div>
+</main>

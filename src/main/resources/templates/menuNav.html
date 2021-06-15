@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<style type="text/css">
+     nav {
+            grid-area: nav;
+            background-color: #efd6ff;
+
+        }
+        ul#menuNav {
+          margin: 0 auto;
+          padding: 1em 0;
+          list-style-type: none;
+        }
+
+        #menuNav a {
+          padding: 17px;
+          background:#b238ff;
+          border-right: 5px solid #ffad1f;
+          color: #ffad1f;
+          display: block;
+        }
+        #menuNav a:hover {
+            background: #ffad1f;
+            color: #b238ff;
+            border-right: 5px solid #b238ff;
+
+        }
+        #menuNav li {
+          display: block;
+          /*margin: 5px; */
+          margin-bottom: 5px;
+          height: 50px;
+        }
+
+</style>
+
+<nav th:fragment="menuNav">
+    <ul id="menuNav">
+        <li><a th:href="@{/home}">Home page</a>
+        </li>
+        <li><a th:href="@{/dishes}">Menu</a></li>
+        <li><a th:href="@{/basket/open}">Basket <span id="itemCount"
+                                                       th:value="${basketItemsAmount}"></span></a></li>
+        <li><a th:href="@{/aboutus}">About us</a></li>
+        <li class="nav-item active" sec:authorize="isAnonymous()">
+            <a class="nav-link" th:href="@{/registration}">Registration</a>
+        </li>
+        <li class="nav-item active" sec:authorize="isAnonymous()">
+            <a th:href="@{/login}" >
+                <input class="nav-link btn btn-primary btn-sm add-category-btn" style="background: purple; border:2px solid #e1a1ff; width: 100px; color: orange;" type="button" value="Log In"/>
+            </a>
+        </li>
+        <li class="nav-item active" sec:authorize="isAuthenticated()">
+            <span id="loggedInUsername" class="nav-link"></span>
+        </li>
+        <li class="nav-item active" sec:authorize="isAuthenticated()">
+            <form th:action="@{/logout}" method="post">
+                <input class="nav-link btn btn-primary btn-sm add-category-btn" style=" background: orange; border:2px solid #e1a1ff; width: 100px;" type="submit" value="Log Out"/>
+            </form>
+        </li>
+
+    </ul>
+
+
+
+
+</nav>
